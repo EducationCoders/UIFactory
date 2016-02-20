@@ -32,7 +32,6 @@
 + (BOOL)jr_swizzleMethod:(SEL)origSel_ withMethod:(SEL)altSel_ error:(NSError**)error_ {
 #if OBJC_API_VERSION >= 2
 	Method origMethod = class_getInstanceMethod(self, origSel_);
-    
 	if (!origMethod) {
 #if TARGET_OS_IPHONE
 		SetNSError(error_, @"original method %@ not found for class %@", NSStringFromSelector(origSel_), [self class]);
@@ -43,7 +42,6 @@
 	}
 	
 	Method altMethod = class_getInstanceMethod(self, altSel_);
-    
 	if (!altMethod) {
 #if TARGET_OS_IPHONE
 		SetNSError(error_, @"alternate method %@ not found for class %@", NSStringFromSelector(altSel_), [self class]);

@@ -49,6 +49,10 @@
                                     <tabBarItem systemItem="more" id="OHZ-YJ-3TY"/>
                                 </items>
                             </tabBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iVX-ox-XE9">
+                                <rect key="frame" x="326" y="143" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

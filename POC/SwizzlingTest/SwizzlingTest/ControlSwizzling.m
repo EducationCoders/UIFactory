@@ -16,6 +16,13 @@
 + (void)initialize
 {
     NSLog(@"%@ %s called", NSStringFromClass(self), __FUNCTION__);
+    NSError *error = nil;
+    BOOL bSuccess = [self jr_swizzleMethod:@selector(drawRect:) withMethod:@selector(drawRect_swizzled:) error:&error];
+}
+
+- (void)drawRect_swizzled:(CGRect)rect
+{
+    
 }
 
 -(void) decorateControl
@@ -43,7 +50,13 @@
     NSError *error = nil;
     BOOL bSuccess = [self jr_swizzleMethod:@selector(initWithCoder:) withMethod:@selector(initWithCoder_swizzled:) error:&error];
     
+    NSLog(@"SEL before - %p %p", @selector(initWithFrame:), @selector(initWithFrame_swizzled:));
+    NSLog(@"IMP before - %p %p", [self methodForSelector:@selector(initWithFrame:)], [self methodForSelector:@selector(initWithFrame_swizzled:)]);
+    
     bSuccess = [self jr_swizzleMethod:@selector(initWithFrame:) withMethod:@selector(initWithFrame_swizzled:) error:&error];
+
+    NSLog(@"SEL after - %p %p", @selector(initWithFrame:), @selector(initWithFrame_swizzled:));
+    NSLog(@"IMP after - %p %p", [self methodForSelector:@selector(initWithFrame:)], [self methodForSelector:@selector(initWithFrame_swizzled:)]);
     
     if (!bSuccess)
     {

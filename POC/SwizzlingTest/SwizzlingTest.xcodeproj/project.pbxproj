@@ -14,8 +14,12 @@
 		B6DF1D801C78764800F6F780 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6DF1D7F1C78764800F6F780 /* Images.xcassets */; };
 		B6DF1D831C78764800F6F780 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6DF1D811C78764800F6F780 /* LaunchScreen.xib */; };
 		B6DF1D8F1C78764800F6F780 /* SwizzlingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1D8E1C78764800F6F780 /* SwizzlingTestTests.m */; };
-		B6DF1D9B1C78769100F6F780 /* ControlSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1D9A1C78769100F6F780 /* ControlSwizzling.m */; };
 		B6DF1DA11C7883BF00F6F780 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DA01C7883BF00F6F780 /* JRSwizzle.m */; };
+		B6DF1DA41C78AD7C00F6F780 /* YOUIControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DA31C78AD7C00F6F780 /* YOUIControl.m */; };
+		B6DF1DA71C78AE4F00F6F780 /* YOCommonSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DA61C78AE4F00F6F780 /* YOCommonSwizzling.m */; };
+		B6DF1DAA1C78AEDC00F6F780 /* YOUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DA91C78AEDC00F6F780 /* YOUIView.m */; };
+		B6DF1DAD1C78DD0600F6F780 /* YOUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DAC1C78DD0600F6F780 /* YOUIButton.m */; };
+		B6DF1DB01C78DE2000F6F780 /* YOUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1DAF1C78DE2000F6F780 /* YOUILabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +46,18 @@
 		B6DF1D881C78764800F6F780 /* SwizzlingTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwizzlingTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DF1D8D1C78764800F6F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6DF1D8E1C78764800F6F780 /* SwizzlingTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwizzlingTestTests.m; sourceTree = "<group>"; };
-		B6DF1D991C78769100F6F780 /* ControlSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlSwizzling.h; sourceTree = "<group>"; };
-		B6DF1D9A1C78769100F6F780 /* ControlSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlSwizzling.m; sourceTree = "<group>"; };
 		B6DF1D9F1C7883BF00F6F780 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JRSwizzle.h; path = ../../JRSwizzle/JRSwizzle.h; sourceTree = "<group>"; };
 		B6DF1DA01C7883BF00F6F780 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JRSwizzle.m; path = ../../JRSwizzle/JRSwizzle.m; sourceTree = "<group>"; };
+		B6DF1DA21C78AD7C00F6F780 /* YOUIControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOUIControl.h; sourceTree = "<group>"; };
+		B6DF1DA31C78AD7C00F6F780 /* YOUIControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOUIControl.m; sourceTree = "<group>"; };
+		B6DF1DA51C78AE4F00F6F780 /* YOCommonSwizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOCommonSwizzling.h; sourceTree = "<group>"; };
+		B6DF1DA61C78AE4F00F6F780 /* YOCommonSwizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOCommonSwizzling.m; sourceTree = "<group>"; };
+		B6DF1DA81C78AEDC00F6F780 /* YOUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOUIView.h; sourceTree = "<group>"; };
+		B6DF1DA91C78AEDC00F6F780 /* YOUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOUIView.m; sourceTree = "<group>"; };
+		B6DF1DAB1C78DD0600F6F780 /* YOUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOUIButton.h; sourceTree = "<group>"; };
+		B6DF1DAC1C78DD0600F6F780 /* YOUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOUIButton.m; sourceTree = "<group>"; };
+		B6DF1DAE1C78DE2000F6F780 /* YOUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOUILabel.h; sourceTree = "<group>"; };
+		B6DF1DAF1C78DE2000F6F780 /* YOUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOUILabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +143,16 @@
 			children = (
 				B6DF1D9F1C7883BF00F6F780 /* JRSwizzle.h */,
 				B6DF1DA01C7883BF00F6F780 /* JRSwizzle.m */,
-				B6DF1D991C78769100F6F780 /* ControlSwizzling.h */,
-				B6DF1D9A1C78769100F6F780 /* ControlSwizzling.m */,
+				B6DF1DA51C78AE4F00F6F780 /* YOCommonSwizzling.h */,
+				B6DF1DA61C78AE4F00F6F780 /* YOCommonSwizzling.m */,
+				B6DF1DA81C78AEDC00F6F780 /* YOUIView.h */,
+				B6DF1DA91C78AEDC00F6F780 /* YOUIView.m */,
+				B6DF1DA21C78AD7C00F6F780 /* YOUIControl.h */,
+				B6DF1DA31C78AD7C00F6F780 /* YOUIControl.m */,
+				B6DF1DAB1C78DD0600F6F780 /* YOUIButton.h */,
+				B6DF1DAC1C78DD0600F6F780 /* YOUIButton.m */,
+				B6DF1DAE1C78DE2000F6F780 /* YOUILabel.h */,
+				B6DF1DAF1C78DE2000F6F780 /* YOUILabel.m */,
 			);
 			name = swizzling;
 			sourceTree = "<group>";
@@ -238,10 +258,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6DF1D7B1C78764800F6F780 /* ViewController.m in Sources */,
+				B6DF1DB01C78DE2000F6F780 /* YOUILabel.m in Sources */,
 				B6DF1D781C78764800F6F780 /* AppDelegate.m in Sources */,
 				B6DF1D751C78764800F6F780 /* main.m in Sources */,
-				B6DF1D9B1C78769100F6F780 /* ControlSwizzling.m in Sources */,
+				B6DF1DA41C78AD7C00F6F780 /* YOUIControl.m in Sources */,
+				B6DF1DA71C78AE4F00F6F780 /* YOCommonSwizzling.m in Sources */,
+				B6DF1DAA1C78AEDC00F6F780 /* YOUIView.m in Sources */,
 				B6DF1DA11C7883BF00F6F780 /* JRSwizzle.m in Sources */,
+				B6DF1DAD1C78DD0600F6F780 /* YOUIButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
