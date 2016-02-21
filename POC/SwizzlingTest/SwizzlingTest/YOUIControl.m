@@ -23,7 +23,7 @@
     self.layer.borderWidth = 1.0f;
 }
 
-- (void)undecorateView:(UIView *)parent
+- (void) undecorateView:(UIView *)parent
 {
     [super undecorateView:parent];
     

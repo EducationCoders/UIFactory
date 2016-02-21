@@ -10,7 +10,11 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView(YO_ControlSwizzling)
+
+@property (nonatomic, assign) BOOL disableYOSkinning;
+
 -(void) decorateView;
 -(void) undecorateView:(UIView*) parent;
 -(void) undecorateSubviews;
+
 @end

@@ -15,7 +15,7 @@
     NSLog(@"%@ initialize", NSStringFromClass(self));
 }
 
-- (void)decorateView
+- (void) decorateView
 {
     NSLog(@"%@ decorate", NSStringFromClass([self class]));
     
@@ -24,7 +24,7 @@
 }
 
 
-- (void)undecorateView:(UIView *)parent
+- (void) undecorateView:(UIView *)parent
 {
     [super undecorateView:parent];
     

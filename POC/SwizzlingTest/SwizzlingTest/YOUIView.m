@@ -11,6 +11,37 @@
 
 @implementation UIView(YO_ControlSwizzling)
 
+@dynamic disableYOSkinning;
+
+#pragma - mark
+#pragma - mark ------- Runtime Properties -----
+
+NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
+
+- (void) setDisableYOSkinning:(BOOL)disableYOSkinning
+{
+    objc_setAssociatedObject(self, &keyDisableYOSkinning, @(disableYOSkinning), OBJC_ASSOCIATION_ASSIGN);
+    
+    if (self.disableYOSkinning)
+    {
+        [self undecorateView:nil];
+    }
+    else
+    {
+        [self decorateView];
+    }
+}
+
+- (BOOL) disableYOSkinning
+{
+    return [objc_getAssociatedObject(self, &keyDisableYOSkinning) boolValue];
+}
+
+
+
+#pragma - mark
+#pragma - mark ------- Swizzling -----
+
 +(void) initialize
 {
     NSLog(@"%@ initialize", NSStringFromClass(self));
@@ -22,7 +53,7 @@
     });
 }
 
-+(BOOL)checkIfObject:(Class) object overridesSelector:(SEL)selector {
++(BOOL) checkIfObject:(Class) object overridesSelector:(SEL)selector {
     
     Class objSuperClass = [object superclass];
     BOOL isMethodOverridden = [NSStringFromClass(object) isEqualToString:@"UIView"];
@@ -59,6 +90,9 @@
     return result;
 }
 
+#pragma - mark
+#pragma - mark ------- Decoration -----
+
 -(void) decorateView
 {
     NSLog(@"%@ decorate", NSStringFromClass([self class]));
@@ -80,5 +114,8 @@
         [subview undecorateView:self];
     }
 }
+
+#pragma - mark
+#pragma - mark ------- Private -----
 
 @end

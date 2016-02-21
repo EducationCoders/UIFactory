@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JRSwizzle.h"
+#import <objc/runtime.h>
 
 #define YO_SwizzlingDomain  @"YO_SwizzlingDomain"
 

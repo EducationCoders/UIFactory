@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YOUIButton.h"
 
 @interface ViewController ()
 
@@ -17,12 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Test Disabling decoration for this button
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
     [button setFrame:CGRectMake(10, 10, 100, 100)];
     [button setTitle:@"Test Button" forState:(UIControlStateNormal)];
     
-    
     button.layer.backgroundColor = [[UIColor yellowColor] CGColor];
+    
+    button.disableYOSkinning = YES;
     
     [self.view addSubview:button];
     
