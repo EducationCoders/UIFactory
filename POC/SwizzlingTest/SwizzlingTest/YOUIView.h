@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface UIView(YO_ControlSwizzling)
+#import "SwizzlingEvents.h"
+
+@interface UIView(YO_ControlSwizzling) <SwizzlingEventsInitialization, SwizzlingEventsDrawing>
 
 @property (nonatomic, assign) BOOL disableYOSkinning;
+@property (nonatomic, strong) CALayer *yoSkinningLayer;
 
 -(void) decorateView;
 -(void) undecorateView:(UIView*) parent;

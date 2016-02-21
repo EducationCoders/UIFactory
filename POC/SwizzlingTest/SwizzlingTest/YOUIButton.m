@@ -21,20 +21,14 @@
     
     [self.titleLabel undecorateView:self];
     
-    self.layer.borderColor = [[UIColor blueColor] CGColor];
-    self.layer.borderWidth = 1.0f;
-    self.layer.backgroundColor = [[[UIColor purpleColor] colorWithAlphaComponent:0.7] CGColor];
+    self.yoSkinningLayer.backgroundColor = [[UIColor blueColor] CGColor];
+    self.yoSkinningLayer.cornerRadius = 2.f;
 }
 
 
 - (void) undecorateView:(UIView *)parent
 {
     [super undecorateView:parent];
-    
-    [self.titleLabel undecorateView:self];
-    self.layer.borderColor = NULL;
-    self.layer.borderWidth = 0.0f;
-    self.layer.backgroundColor = NULL;
 }
 
 

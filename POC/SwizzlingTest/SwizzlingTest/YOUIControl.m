@@ -19,15 +19,7 @@
 {
     NSLog(@"%@ decorate", NSStringFromClass([self class]));
     
-    self.layer.borderColor = [[UIColor greenColor] CGColor];
-    self.layer.borderWidth = 1.0f;
+    [super decorateView];
 }
 
-- (void) undecorateView:(UIView *)parent
-{
-    [super undecorateView:parent];
-    
-    self.layer.borderColor = NULL;
-    self.layer.borderWidth = 0.0f;
-}
 @end

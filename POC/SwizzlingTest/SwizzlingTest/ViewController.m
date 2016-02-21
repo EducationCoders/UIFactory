@@ -19,13 +19,18 @@
     [super viewDidLoad];
     
     //Test Disabling decoration for this button
-    UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
-    [button setFrame:CGRectMake(10, 10, 100, 100)];
-    [button setTitle:@"Test Button" forState:(UIControlStateNormal)];
     
-    button.layer.backgroundColor = [[UIColor yellowColor] CGColor];
+    UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
+    [button setFrame:CGRectMake(50, 10, 200, 50)];
+    [button setTitle:@"Button added at runtime" forState:(UIControlStateNormal)];
     
     button.disableYOSkinning = YES;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        button.disableYOSkinning =  NO;
+    });
+    
+//    [[[button.layer sublayers] objectAtIndex:0] setBackgroundColor:[[UIColor greenColor] CGColor]];
     
     [self.view addSubview:button];
     

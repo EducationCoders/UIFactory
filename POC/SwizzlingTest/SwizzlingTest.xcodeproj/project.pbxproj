@@ -33,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6ABADDC1C79C4E3007AA384 /* SwizzlingEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwizzlingEvents.h; sourceTree = "<group>"; };
 		B6DF1D6F1C78764800F6F780 /* SwizzlingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwizzlingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DF1D731C78764800F6F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6DF1D741C78764800F6F780 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +144,7 @@
 			children = (
 				B6DF1D9F1C7883BF00F6F780 /* JRSwizzle.h */,
 				B6DF1DA01C7883BF00F6F780 /* JRSwizzle.m */,
+				B6ABADDC1C79C4E3007AA384 /* SwizzlingEvents.h */,
 				B6DF1DA51C78AE4F00F6F780 /* YOCommonSwizzling.h */,
 				B6DF1DA61C78AE4F00F6F780 /* YOCommonSwizzling.m */,
 				B6DF1DA81C78AEDC00F6F780 /* YOUIView.h */,

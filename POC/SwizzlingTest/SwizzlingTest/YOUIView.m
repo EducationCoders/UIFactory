@@ -24,11 +24,11 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
     
     if (self.disableYOSkinning)
     {
-        [self undecorateView:nil];
+        [self undecorateViewBase:nil];
     }
     else
     {
-        [self decorateView];
+        [self decorateViewBase];
     }
 }
 
@@ -38,6 +38,17 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
 }
 
 
+NSString const *keyYoSkinningLayer = @"yo.runtime.property.yoSkinningLayer";
+
+- (void) setYoSkinningLayer:(CALayer *)yoSkinningLayer
+{
+    objc_setAssociatedObject(self, &keyYoSkinningLayer, yoSkinningLayer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CALayer *) yoSkinningLayer
+{
+    return objc_getAssociatedObject(self, &keyYoSkinningLayer);
+}
 
 #pragma - mark
 #pragma - mark ------- Swizzling -----
@@ -50,6 +61,10 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
     dispatch_once(&onceToken, ^{
         [self swizzleMethod:@selector(initWithCoder:) withNewMethod:@selector(initWithCoder_swizzled:) error:nil];
         [self swizzleMethod:@selector(initWithFrame:) withNewMethod:@selector(initWithFrame_swizzled:) error:nil];
+        [self swizzleMethod:@selector(drawRect:) withNewMethod:@selector(drawRect_swizzled:) error:nil];
+        [self swizzleMethod:@selector(drawLayer:inContext:) withNewMethod:@selector(drawLayer_swizzled:inContext:) error:nil];
+        [self swizzleMethod:@selector(setBounds:) withNewMethod:@selector(setBounds_swizzled:) error:nil];
+        [self swizzleMethod:@selector(setFrame:) withNewMethod:@selector(setFrame_swizzled:) error:nil];
     });
 }
 
@@ -78,16 +93,60 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
 
 -(id) initWithCoder_swizzled:(NSCoder *)aDecoder
 {
+    [self objectWillInitialize];
+    
     id result = [self initWithCoder_swizzled:aDecoder]; //Equivalent to [super initWithCoder:]
-    [self decorateView];
+    
+    [self objectDidInitialize];
+    
+    [self decorateViewBase];
+    
     return result;
 }
 
 -(id) initWithFrame_swizzled:(CGRect)frame
 {
+    [self objectWillInitialize];
+    
     id result = [self initWithFrame_swizzled:frame]; //Equivalent to [super initWithFrame:]
-    [self decorateView];
+    
+    [self objectDidInitialize];
+    
+    [self decorateViewBase];
+    
     return result;
+}
+
+- (void) drawRect_swizzled:(CGRect)rect
+{
+    [self drawRectWillExecuteWithRectBase:rect];
+    
+    [self drawRect_swizzled:rect];
+    
+    [self drawRectDidExecuteWithRectBase:rect];
+}
+
+- (void) drawLayer_swizzled:(CALayer *)layer inContext:(CGContextRef)ctx
+{
+    [self drawLayerWillExecuteForLayerBase:layer inContext:ctx];
+    
+    [self drawLayer_swizzled:layer inContext:ctx];
+    
+    [self drawLayerDidExecuteForLayerBase:layer inContext:ctx];
+}
+
+- (void) setFrame_swizzled:(CGRect)bounds
+{
+    [self setFrame_swizzled:bounds];
+    
+    [self updateYOLayerFrame:self.bounds];
+}
+
+- (void) setBounds_swizzled:(CGRect)bounds
+{
+    [self setBounds_swizzled:bounds];
+    
+    [self updateYOLayerFrame:self.bounds];
 }
 
 #pragma - mark
@@ -95,16 +154,12 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
 
 -(void) decorateView
 {
-    NSLog(@"%@ decorate", NSStringFromClass([self class]));
-    
-    self.layer.borderColor = [[UIColor redColor] CGColor];
-    self.layer.borderWidth = 2.0f;
+    [self checkAndInitializeYOSkinningLayer];
 }
 
 -(void) undecorateView:(UIView*) parent
 {
-    self.layer.borderColor = NULL;
-    self.layer.borderWidth = 0.0f;
+    [self.yoSkinningLayer removeFromSuperlayer];
 }
 
 -(void) undecorateSubviews
@@ -115,7 +170,101 @@ NSString const *keyDisableYOSkinning = @"yo.runtime.property.disableYOSkinning";
     }
 }
 
+
+#pragma - mark
+#pragma - mark ------- Swizzling Events -----
+
+//Subclass can override below methods for custom handling
+- (void) objectWillInitialize
+{
+}
+
+- (void) objectDidInitialize
+{
+}
+
+-(void) drawRectWillExecuteWithRect:(CGRect) frame
+{
+}
+
+-(void) drawRectDidExecuteWithRect:(CGRect) frame
+{
+}
+
+-(void) drawLayerWillExecuteForLayer:(CALayer*) layer inContext:(CGContextRef) ctx
+{
+}
+
+-(void) drawLayerDidExecuteForLayer:(CALayer*) layer inContext:(CGContextRef) ctx
+{
+}
+
 #pragma - mark
 #pragma - mark ------- Private -----
+
+-(void) checkAndInitializeYOSkinningLayer
+{
+    if (!self.yoSkinningLayer)
+    {
+        self.yoSkinningLayer = [CALayer layer];
+    }
+    
+    if(![self.yoSkinningLayer superlayer])
+    {
+        [self updateYOLayerFrame:self.bounds];
+        
+        [self.layer insertSublayer:self.yoSkinningLayer atIndex:0];
+    }
+}
+
+-(void) updateYOLayerFrame:(CGRect) newFrame
+{
+    self.yoSkinningLayer.frame = newFrame;
+}
+
+-(void) decorateViewBase
+{
+    NSLog(@"%@ decorate", NSStringFromClass([self class]));
+    
+    [self checkAndInitializeYOSkinningLayer];
+    
+    [self decorateView];
+}
+
+-(void) undecorateViewBase:(UIView *)parent
+{
+    [self undecorateView:parent];
+}
+
+-(void) objectWillInitializeBase
+{
+    [self objectWillInitialize];
+}
+
+-(void) objectDidInitializeBase
+{
+    [self objectDidInitialize];
+}
+
+-(void) drawRectWillExecuteWithRectBase:(CGRect) frame
+{
+    [self drawRectWillExecuteWithRect:frame];
+}
+
+-(void) drawRectDidExecuteWithRectBase:(CGRect) frame
+{
+    [self drawRectDidExecuteWithRect:frame];
+}
+
+-(void) drawLayerWillExecuteForLayerBase:(CALayer*) layer inContext:(CGContextRef) ctx
+{
+    [self drawLayerWillExecuteForLayer:layer inContext:ctx];
+}
+
+-(void) drawLayerDidExecuteForLayerBase:(CALayer*) layer inContext:(CGContextRef) ctx
+{
+    [self drawLayerDidExecuteForLayer:layer inContext:ctx];
+}
+
 
 @end
