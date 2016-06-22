@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		777D9DB11C7D659C003E19E5 /* YOCssParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D9DB01C7D659C003E19E5 /* YOCssParser.m */; };
+		777D9DB71C7D6DFD003E19E5 /* ESCssParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D9DB31C7D6DFD003E19E5 /* ESCssParser.m */; };
+		777D9DB81C7D6DFD003E19E5 /* ESCssTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D9DB41C7D6DFD003E19E5 /* ESCssTokenizer.m */; };
+		777D9DB91C7D6DFD003E19E5 /* ESCssTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D9DB61C7D6DFD003E19E5 /* ESCssTokens.m */; };
+		777D9DBC1C7D6E80003E19E5 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D9DBB1C7D6E80003E19E5 /* ThemeManager.m */; };
+		777D9DBF1C7D71ED003E19E5 /* YOTest.css in Resources */ = {isa = PBXBuildFile; fileRef = 777D9DBE1C7D71ED003E19E5 /* YOTest.css */; };
 		B6DF1D751C78764800F6F780 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1D741C78764800F6F780 /* main.m */; };
 		B6DF1D781C78764800F6F780 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1D771C78764800F6F780 /* AppDelegate.m */; };
 		B6DF1D7B1C78764800F6F780 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DF1D7A1C78764800F6F780 /* ViewController.m */; };
@@ -33,6 +39,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		777D9DAF1C7D659C003E19E5 /* YOCssParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOCssParser.h; sourceTree = "<group>"; };
+		777D9DB01C7D659C003E19E5 /* YOCssParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOCssParser.m; sourceTree = "<group>"; };
+		777D9DB21C7D6DFD003E19E5 /* ESCssParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESCssParser.h; sourceTree = "<group>"; };
+		777D9DB31C7D6DFD003E19E5 /* ESCssParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESCssParser.m; sourceTree = "<group>"; };
+		777D9DB41C7D6DFD003E19E5 /* ESCssTokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESCssTokenizer.m; sourceTree = "<group>"; };
+		777D9DB51C7D6DFD003E19E5 /* ESCssTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESCssTokens.h; sourceTree = "<group>"; };
+		777D9DB61C7D6DFD003E19E5 /* ESCssTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESCssTokens.m; sourceTree = "<group>"; };
+		777D9DBA1C7D6E80003E19E5 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeManager.h; path = ../../ThemeManager/ThemeManager.h; sourceTree = "<group>"; };
+		777D9DBB1C7D6E80003E19E5 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeManager.m; path = ../../ThemeManager/ThemeManager.m; sourceTree = "<group>"; };
+		777D9DBE1C7D71ED003E19E5 /* YOTest.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = YOTest.css; sourceTree = "<group>"; };
 		B6ABADDC1C79C4E3007AA384 /* SwizzlingEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwizzlingEvents.h; sourceTree = "<group>"; };
 		B6DF1D6F1C78764800F6F780 /* SwizzlingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwizzlingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DF1D731C78764800F6F780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +95,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		777D9DAE1C7D6579003E19E5 /* CSSParser */ = {
+			isa = PBXGroup;
+			children = (
+				777D9DB21C7D6DFD003E19E5 /* ESCssParser.h */,
+				777D9DB31C7D6DFD003E19E5 /* ESCssParser.m */,
+				777D9DB41C7D6DFD003E19E5 /* ESCssTokenizer.m */,
+				777D9DB51C7D6DFD003E19E5 /* ESCssTokens.h */,
+				777D9DB61C7D6DFD003E19E5 /* ESCssTokens.m */,
+				777D9DAF1C7D659C003E19E5 /* YOCssParser.h */,
+				777D9DB01C7D659C003E19E5 /* YOCssParser.m */,
+			);
+			name = CSSParser;
+			path = ../../CSSParser;
+			sourceTree = "<group>";
+		};
+		777D9DBD1C7D6E88003E19E5 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				777D9DBA1C7D6E80003E19E5 /* ThemeManager.h */,
+				777D9DBB1C7D6E80003E19E5 /* ThemeManager.m */,
+			);
+			name = ThemeManager;
+			sourceTree = "<group>";
+		};
 		B6DF1D661C78764800F6F780 = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +140,8 @@
 		B6DF1D711C78764800F6F780 /* SwizzlingTest */ = {
 			isa = PBXGroup;
 			children = (
+				777D9DBD1C7D6E88003E19E5 /* ThemeManager */,
+				777D9DAE1C7D6579003E19E5 /* CSSParser */,
 				B6DF1D981C78766400F6F780 /* swizzling */,
 				B6DF1D761C78764800F6F780 /* AppDelegate.h */,
 				B6DF1D771C78764800F6F780 /* AppDelegate.m */,
@@ -118,6 +160,7 @@
 			children = (
 				B6DF1D731C78764800F6F780 /* Info.plist */,
 				B6DF1D741C78764800F6F780 /* main.m */,
+				777D9DBE1C7D71ED003E19E5 /* YOTest.css */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6DF1D7E1C78764800F6F780 /* Main.storyboard in Resources */,
+				777D9DBF1C7D71ED003E19E5 /* YOTest.css in Resources */,
 				B6DF1D831C78764800F6F780 /* LaunchScreen.xib in Resources */,
 				B6DF1D801C78764800F6F780 /* Images.xcassets in Resources */,
 			);
@@ -259,7 +303,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777D9DB11C7D659C003E19E5 /* YOCssParser.m in Sources */,
+				777D9DBC1C7D6E80003E19E5 /* ThemeManager.m in Sources */,
+				777D9DB91C7D6DFD003E19E5 /* ESCssTokens.m in Sources */,
 				B6DF1D7B1C78764800F6F780 /* ViewController.m in Sources */,
+				777D9DB71C7D6DFD003E19E5 /* ESCssParser.m in Sources */,
+				777D9DB81C7D6DFD003E19E5 /* ESCssTokenizer.m in Sources */,
 				B6DF1DB01C78DE2000F6F780 /* YOUILabel.m in Sources */,
 				B6DF1D781C78764800F6F780 /* AppDelegate.m in Sources */,
 				B6DF1D751C78764800F6F780 /* main.m in Sources */,

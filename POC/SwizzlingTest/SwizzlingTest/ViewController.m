@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "YOUIButton.h"
+#import "ThemeManager.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [ThemeManager sharedManager];
     //Test Disabling decoration for this button
     
     UIButton *button = [UIButton buttonWithType:(UIButtonTypeRoundedRect)];
